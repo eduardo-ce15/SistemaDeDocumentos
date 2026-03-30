@@ -188,7 +188,14 @@ function generarPDF() {
     const remitente = document.getElementById("remitente").value;
 
     if (!nombre || !dni || !asunto || !remitente) {
-        alert("Completa todos los campos");
+
+        Swal.fire({
+            title: "Campos incompletos",
+            text: "Debes llenar todos los campos",
+            icon: "warning",
+            confirmButtonColor: "#dc3545",
+            confirmButtonText: "Entendido"
+        });
         return;
     }
 
