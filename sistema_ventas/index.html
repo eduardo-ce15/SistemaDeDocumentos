@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Sistema Office Pro</title>
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+
+            <!-- CARD PRINCIPAL -->
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- HEADER -->
+                <div class="card-header bg-primary text-white text-center rounded-top-4">
+                    <h4 class="mb-0">Sistema Office Pro</h4>
+                    <small>Generador de Documentos Profesionales</small>
+                </div>
+
+                <!-- BODY -->
+                <div class="card-body p-4">
+
+                    <form>
+
+                        <!-- DNI -->
+                        <div class="input-group mb-3">
+                            <input type="text" id="dni" class="form-control" placeholder="Ingrese DNI">
+                            <button class="btn btn-secondary">
+                                <img src="./imagenes/icon_3.png" alt="">
+                            </button>
+                        </div>
+
+                        <!-- NOMBRE -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nombres y Apellidos</label>
+                            <input class="form-control" type="text" id="nombre" placeholder="Nombres y Apellidos">
+                        </div>
+
+                        <!-- CATEGORIA -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Categoría</label>
+                            <select class="form-select" id="categoria" onchange="cargarTipos()">
+                                <option disabled selected>Seleccionar</option>
+                                <option value="laboral">Laboral</option>
+                                <option value="administrativo">Administrativo</option>
+                                <option value="legal">Legal</option>
+                                <option value="academico">Académico</option>
+                            </select>
+                        </div>
+
+                        <!-- TIPO -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Tipo de Documento</label>
+                            <select class="form-select" id="tipo" onchange="mostrarCamposExtra()">
+                                <option disabled selected>Seleccionar</option>
+                            </select>
+                        </div>
+
+                        <!-- REMITENTE -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Remitente</label>
+                            <input class="form-control" type="text" id="remitente">
+                        </div>
+
+                        <!-- CAMPOS EXTRA -->
+                        <div id="camposExtra" class="mb-3"></div>
+
+                        <!-- FIRMA -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Firma</label>
+                            <div class="border rounded-3 p-2 bg-white">
+                                <canvas id="firma" class="w-100" style="height:150px;"></canvas>
+                            </div>
+                            <small class="text-muted">Firme con el mouse o dedo</small>
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="d-flex flex-wrap gap-2 justify-content-between">
+                            <button class="btn btn-outline-danger" type="button" onclick="limpiarFirma()">
+                                Limpiar
+                            </button>
+
+                            <button class="btn btn-success" type="button" onclick="generarPDF()">
+                                Generar PDF
+                            </button>
+
+                            <button class="btn btn-dark" type="button" onclick="verHistorial()">
+                                Historial
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+<script src="app.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
